@@ -1,0 +1,22 @@
+language: java
+
+sudo: required
+services:
+  - docker
+
+install: skip
+
+script:
+  - docker build -t alexandrbolkunets/hello-world .
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "test-bot-application"
+  env: "testbotapplication-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-341505305763"
+  bucket_path: "test-bot-application"
+  on:
+    branch: main
+  access_key_id: $ACCESS_KEY
+  secret_access_key: $SECRET_KEY
