@@ -4,13 +4,14 @@ sudo: required
 services:
   - docker
 
-install: skip
+install:
+  - docker build -t $DOCKER_HUB_PASS/aws-hello-world .
 
 script:
-  - docker build -t alexandrbolkunets/aws-hello-world .
+  - echo "$DOCKER_HUB_PASS" | docker login -u "$DOCHER_HUB_LOGIN}" --password-stdin
 
 deploy:
   provider: script
-  script: echo $DOCKER_HUB_PASS | docker login -u {DOCHER_HUB_LOGIN} --password-stdin | docker push alexandrbolkunets/aws-hello-world
+  script: docker push ${DOCKER_HUB_LOGIN}/aws-hello-world
   on:
     branch: main
