@@ -8,3 +8,9 @@ install: skip
 
 script:
   - docker build -t alexandrbolkunets/aws-hello-world .
+
+deploy:
+  provider: script
+  script: echo $DOCKER_HUB_PASS | docker login -u {DOCHER_HUB_LOGIN} --password-stdin | docker push alexandrbolkunets/aws-hello-world
+  on:
+    branch: main
