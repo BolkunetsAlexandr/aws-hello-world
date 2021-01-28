@@ -8,7 +8,7 @@ install:
   - docker build -t $DOCKER_HUB_PASS/aws-hello-world .
 
 script:
-  - echo "$DOCKER_HUB_PASS" | docker login -u "$DOCHER_HUB_LOGIN}" --password-stdin
+  - echo "$DOCKER_HUB_PASS" | docker login -u "$DOCHER_HUB_LOGIN" --password-stdin
 
 deploy:
   provider: script
