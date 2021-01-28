@@ -12,6 +12,6 @@ script:
 
 deploy:
   provider: script
-  script: docker push ${DOCKER_HUB_LOGIN}/aws-hello-world
+  script: docker push "$DOCKER_HUB_LOGIN"/aws-hello-world
   on:
     branch: main
