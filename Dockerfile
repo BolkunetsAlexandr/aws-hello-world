@@ -1,7 +1,7 @@
 FROM gradle:6.8-jdk15-hotspot
 WORKDIR /app
-COPY settings*.gradle .
-COPY build*.gradle*.kts .
+COPY settings.gradle.kts .
+COPY build.gradle.kts .
 COPY src src
 RUN gradle build
 
