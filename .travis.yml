@@ -5,13 +5,13 @@ services:
   - docker
 
 install:
-  - docker build -t "$DOCHER_HUB_LOGIN"/aws-hello-world .
+  - docker build -t alexandrbolkunets/aws-hello-world .
 
 script:
   - echo "$DOCKER_HUB_PASS" | docker login -u "$DOCHER_HUB_LOGIN" --password-stdin
 
 deploy:
   provider: script
-  script: docker push "$DOCKER_HUB_LOGIN"/aws-hello-world
+  script: docker push alexandrbolkunets/aws-hello-world
   on:
     branch: main
