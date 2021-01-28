@@ -6,5 +6,5 @@ COPY src src
 RUN gradle build
 
 FROM adoptopenjdk/openjdk15:jre-15.0.1_9
-COPY --from=0 /app/build/libs/aws-services-training-0.0.1.jar /usr/local/lib/app.jar
+COPY --from=0 /app/build/libs/hello-world-0.0.1.jar /usr/local/lib/app.jar
 ENTRYPOINT ["java","-jar","/usr/local/lib/app.jar"]
